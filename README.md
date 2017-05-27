@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
 | renderItem | function | `renderItem` will be called to render the data objects which will be displayed in the result view below the text input. |
 | renderSeparator | function | `renderSeparator` will be called to render the list separators which will be displayed between the list elements in the result view below the text input. |
 | renderTextInput | function | render custom TextInput. All props passed to this function. |
+| renderScrollComponent | function | A function that returns the scrollable component in which the list rows are rendered. Defaults to returning a ScrollView with the given props. |
 
 ## Known issues
 * By default the autocomplete will not behave as expected inside a `<ScrollView />`. Set the scroll view's prop `keyboardShouldPersistTaps={true}` to fix this ([#5](https://github.com/l-urence/react-native-autocomplete-input/issues/5)).

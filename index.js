@@ -59,7 +59,13 @@ class Autocomplete extends Component {
     /**
      * renders custom TextInput. All props passed to this function.
      */
-    renderTextInput: PropTypes.func
+    renderTextInput: PropTypes.func,
+    /**
+     * (props) => renderable
+     * A function that returns the scrollable component in which the list rows are rendered.
+     * Defaults to returning a ScrollView with the given props.
+     */
+    renderScrollComponent: PropTypes.func,
   };
 
   static defaultProps = {
@@ -100,7 +106,7 @@ class Autocomplete extends Component {
 
   renderResultList() {
     const { dataSource } = this.state;
-    const { listStyle, renderItem, renderSeparator } = this.props;
+    const { listStyle, renderItem, renderSeparator, renderScrollComponent } = this.props;
 
     return (
       <ListView
@@ -109,6 +115,7 @@ class Autocomplete extends Component {
         renderRow={renderItem}
         renderSeparator={renderSeparator}
         style={[styles.list, listStyle]}
+        renderScrollComponent={renderScrollComponent}
       />
     );
   }
